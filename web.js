@@ -30,8 +30,8 @@ var genString = function(){
 	return str;
 };
 
-
-var urllocation = 'http://portkeyapp.herokuapp.com';
+var urllocation = 'http://portkey.me';
+//var urllocation = 'http://portkeyapp.herokuapp.com';
 //var urllocation = 'http://localhost:5000';
 
 // Create Server
