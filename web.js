@@ -135,7 +135,6 @@ var server = http.createServer(function(req, response)
 		      
 		      	response.end();
 			});
-		}else 
 		}else{
 			response.writeHead(404, {'Content-Type': 'text/plain'});
     		response.end("Page Could Not Be Found"); 
