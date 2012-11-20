@@ -1,7 +1,7 @@
 var fs = require('fs'),
 	redisUrl = require('redis-url'),
-	http = require('http'),
-	nowjs = require('now');
+	http = require('http');
+	/*nowjs = require('now');*/
 
 var querystring = require('querystring');
 var utils = require('utils');
