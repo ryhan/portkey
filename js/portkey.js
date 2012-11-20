@@ -51,7 +51,7 @@ var content = document.documentElement.innerHTML;
 
 document.body.innerHTML += 
     '<form id="portkeyPOST" enctype="application/x-www-form-urlencoded"'
-        + ' action="http://localhost:5000/api" method="post">'
+        + ' action="http://portkeyapp.herokuapp.com/api" method="post">'
         + '<input type="hidden" name="content" value="' + encodeURIComponent(content) + '">' 
         + '</form>';
 

@@ -30,6 +30,13 @@ a{
 	font-weight: bold;
 }
 
+.bookmark{
+	color: #222;
+	background-color: #DDD;
+	padding: 5px 10px;
+	font-size: 15px;
+}
+
 em{
 	color: #666;
 }
