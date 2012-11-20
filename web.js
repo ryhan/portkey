@@ -30,6 +30,9 @@ var genString = function(){
 };
 
 
+var urllocation = 'http://portkeyapp.herokuapp.com/';
+//var urllocation = 'http://localhost:5000/';
+
 // Create Server
 var server = http.createServer(function(req, response)
 {
@@ -83,7 +86,7 @@ var server = http.createServer(function(req, response)
 		      content = decodedBody.content;
 
 		      var newPath = genString();
-		      var url = 'http://portkeyapp.herokuapp.com//' + newPath;
+		      var url = urllocation + '/' + newPath;
 		      linkTable[newPath] = content;
 
 		      console.log('API REQUEST MADE');
