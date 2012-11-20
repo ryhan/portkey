@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Portkey</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script src="/nowjs/now.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+	now.recieveContent = function(content){
+		var html = decodeURIComponent(content); 
+		console.log(html);
+		document.documentElement.innerHTML = html;
+	};
+/*
+now.recieveProject = function(project){
+  var html = "<a href='"+ project.link 
+            + "'><div class='project'><span>" + project.name 
+            + "</span><img src='" + project.image + "'/></div></a>";
+
+  $('#app').append(html);
+  console.log(project);
+};
+*/
+});
+</script>
+</body>
+</html>

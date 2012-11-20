@@ -7,6 +7,60 @@
   <script src="/nowjs/now.js"></script>
 </head>
 <body>
-	Automagic Page cloning
+	<header>
+
+		<p> <a href="http://portkey.me/">PortKey</a> is the easiest way to share HTML & CSS.<br/>
+			No server, terminal, or file transfer client required.</p>
+
+		<p><strong>"Installation"</strong></p>
+		<p> 1. Drag <a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://portkeyapp.herokuapp.com/portkey.js';})();">PortKey</a> into your bookmarks bar.<br/>
+			2. There is no second step.</p>
+
+		<p><strong>How to use it.</strong></p>
+		<p> 1. Open the page you want to share in your browser.<br/>
+			2. Click on the portkey bookmark.
+		</p>
+		<p> Portkey will automagically upload the page in the
+			background and give you a short link to share.
+		</p>
+
+		<p><strong>Important Answers</strong></p>
+
+		<p> <em>Can I host a site or application on Portkey?</em><br/>
+			No. Portkey is for temporary, static HTML & CSS.</p>
+
+		<p> <em>Will Portkey work with my local HTML & CSS files?</em><br/>
+			Yes. That includes anything served by localhost.<br/>
+			If your browser can render it, Portkey can serve it.</p>
+
+		<p> <em>What about style changes made in the inspector?</em><br/>
+			Portkey will sync those changes as well.</p>
+
+		<p> <em>What about javascript and images?</em><br/>
+			Portkey won't host images, and removes javascript.<br/>
+			Externally hosted images will work just fine.</p>
+
+		<p> <em>Who's being Portkey?</em><br/>
+			Ryhan Hassan. Find him 
+			<a href="http://twitter.com/ryhanhassan">on Twitter</a>, or 
+			<a href="mailto: ryhanh@me.com">email him</a>.</p>
+
+
+		<!--
+		<div class='uploadMethod'>port key</div>
+		Boom. Published.
+	-->
+	
+	</header>
+	
+	<!--
+	<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://localhost:5000/portkey.js';})();">Portkeyify</a>
+-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	now.recieveContent = function(content){};
+});
+</script>
 </body>
 </html>
