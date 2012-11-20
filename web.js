@@ -51,12 +51,14 @@ var server = http.createServer(function(req, response)
 		});
 	}
 	else{
-
 		if (req.url.substring(0,2) == '//'){
 			// special request handler
+			var queryString = req.url.substring(2,req.url.length);
+			var content = linkTable[queryString];
+
 			response.writeHead(200, "OK", {'Content-Type': 'text/html'});
 			response.write('<!DOCTYPE html><html>');
-	      	response.write(decodeURIComponent(linkTable[req.url.substring(2,req.url.length)]));
+	      	response.write(decodeURIComponent(content));
 	      	response.write('</html>');
 	      
 	      	response.end();
