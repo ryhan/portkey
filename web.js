@@ -89,7 +89,10 @@ var server = http.createServer(function(req, response)
 
 
 		      // output the decoded data to the HTTP response          
-		      response.write('<html><head><title>Post data</title></head><body><a href="');
+		      response.write('<html><head><title>Post data</title>');
+		      response.write('<meta http-equiv="refresh" content="1;url=');
+		      response.write(url);
+		      response.write('"></head><body><a href="');
 		      response.write(url);
 		      response.write('">');
 		      response.write(url);
