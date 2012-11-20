@@ -55,32 +55,7 @@ var server = http.createServer(function(req, response)
 		});
 	}
 	else{
-		if (req.url.substring(0,2) == '//'){
-			// special request handler
-			var queryString = req.url.substring(2,req.url.length);
-
-			console.log('Rendering page at ' + queryString);
-
-			redis.get(queryString, function(err, content) {
-			  	response.writeHead(200, "OK", {'Content-Type': 'text/html'});
-				response.write('<!DOCTYPE html><html>');
-		      	response.write(decodeURIComponent(content));
-		      	response.write('</html>');
-		      
-		      	response.end();
-			});
-			/*
-			var content = linkTable[queryString];
-
-			response.writeHead(200, "OK", {'Content-Type': 'text/html'});
-			response.write('<!DOCTYPE html><html>');
-	      	response.write(decodeURIComponent(content));
-	      	response.write('</html>');
-	      
-	      	response.end();
-	      	*/
-
-		}else if (req.url == '/api' && req.method == 'POST'){
+		if (req.url == '/api' && req.method == 'POST'){
 			console.log("[200] " + req.method + " to " + req.url);
 		    var fullBody = '';
 		    
@@ -122,6 +97,45 @@ var server = http.createServer(function(req, response)
 		      
 		      response.end();
 		    });
+		}else if (req.url.substring(0,2) == '//'){
+			// special request handler
+			var queryString = req.url.substring(2,req.url.length);
+
+			console.log('Rendering page at ' + queryString);
+
+			redis.get(queryString, function(err, content) {
+			  	response.writeHead(200, "OK", {'Content-Type': 'text/html'});
+				response.write('<!DOCTYPE html><html>');
+		      	response.write(decodeURIComponent(content));
+		      	response.write('</html>');
+		      
+		      	response.end();
+			});
+			/*
+			var content = linkTable[queryString];
+
+			response.writeHead(200, "OK", {'Content-Type': 'text/html'});
+			response.write('<!DOCTYPE html><html>');
+	      	response.write(decodeURIComponent(content));
+	      	response.write('</html>');
+	      
+	      	response.end();
+	      	*/
+	    }else if (req.url.substring(0,1) == '/'){
+			// special request handler
+			var queryString = req.url.substring(1,req.url.length);
+
+			console.log('Rendering page at ' + queryString);
+
+			redis.get(queryString, function(err, content) {
+			  	response.writeHead(200, "OK", {'Content-Type': 'text/html'});
+				response.write('<!DOCTYPE html><html>');
+		      	response.write(decodeURIComponent(content));
+		      	response.write('</html>');
+		      
+		      	response.end();
+			});
+		}else 
 		}else{
 			response.writeHead(404, {'Content-Type': 'text/plain'});
     		response.end("Page Could Not Be Found"); 
