@@ -32,7 +32,7 @@ var genString = function(){
 
 
 var urllocation = 'http://portkeyapp.herokuapp.com';
-var urllocation = 'http://localhost:5000';
+//var urllocation = 'http://localhost:5000';
 
 // Create Server
 var server = http.createServer(function(req, response)
