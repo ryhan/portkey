@@ -32,7 +32,7 @@ var genString = function(){
 
 
 var urllocation = 'http://portkeyapp.herokuapp.com';
-//var urllocation = 'http://localhost:5000';
+var urllocation = 'http://localhost:5000';
 
 // Create Server
 var server = http.createServer(function(req, response)
@@ -58,6 +58,8 @@ var server = http.createServer(function(req, response)
 		if (req.url.substring(0,2) == '//'){
 			// special request handler
 			var queryString = req.url.substring(2,req.url.length);
+
+			console.log('Rendering page at ' + queryString);
 
 			redis.get(queryString, function(err, content) {
 			  	response.writeHead(200, "OK", {'Content-Type': 'text/html'});
@@ -107,7 +109,8 @@ var server = http.createServer(function(req, response)
 		      //linkTable[newPath] = content;
 
 		      console.log('API REQUEST MADE');
-		      console.log(decodeURIComponent(content));
+		      console.log('PAIRED WITH ' + newPath);
+		      //console.log(decodeURIComponent(content));
 
 
 		      // output the decoded data to the HTTP response          
