@@ -11,8 +11,7 @@ var redis = redisUrl.connect(process.env.REDISTOGO_URL);
 
 var content = '';
 
-
-var linkTable = {};
+//var linkTable = {};
 
 var genString = function(){
 	var vowels = ['a','e','i', 'o','u']; 
@@ -23,9 +22,11 @@ var genString = function(){
 		str+= vowels[Math.floor(Math.random()*vowels.length)];
 	}
 
+	/*
 	if (linkTable[genString] != undefined){
 		return genString();
-	}
+	}*/
+
 	return str;
 };
 
@@ -57,6 +58,16 @@ var server = http.createServer(function(req, response)
 		if (req.url.substring(0,2) == '//'){
 			// special request handler
 			var queryString = req.url.substring(2,req.url.length);
+
+			redis.get(queryString, function(err, content) {
+			  	response.writeHead(200, "OK", {'Content-Type': 'text/html'});
+				response.write('<!DOCTYPE html><html>');
+		      	response.write(decodeURIComponent(content));
+		      	response.write('</html>');
+		      
+		      	response.end();
+			});
+			/*
 			var content = linkTable[queryString];
 
 			response.writeHead(200, "OK", {'Content-Type': 'text/html'});
@@ -65,6 +76,7 @@ var server = http.createServer(function(req, response)
 	      	response.write('</html>');
 	      
 	      	response.end();
+	      	*/
 
 		}else if (req.url == '/api' && req.method == 'POST'){
 			console.log("[200] " + req.method + " to " + req.url);
@@ -76,6 +88,7 @@ var server = http.createServer(function(req, response)
 		    });
 		    
 		    req.on('end', function() {
+
 		    
 		      // request ended -> do something with the data
 		      response.writeHead(200, "OK", {'Content-Type': 'text/html'});
@@ -86,8 +99,12 @@ var server = http.createServer(function(req, response)
 		      content = decodedBody.content;
 
 		      var newPath = genString();
+
 		      var url = urllocation + '/' + newPath;
-		      linkTable[newPath] = content;
+
+		      redis.set(newPath, content);
+
+		      //linkTable[newPath] = content;
 
 		      console.log('API REQUEST MADE');
 		      console.log(decodeURIComponent(content));
