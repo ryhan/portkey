@@ -111,7 +111,7 @@ var server = http.createServer(function(req, response)
 server.listen( process.env.PORT  || 8080);
 
 // Intialize Now.js
-var everyone = nowjs.initialize(server);
+//var everyone = nowjs.initialize(server);
 
 /*
 function project(name, link, image){
@@ -133,6 +133,7 @@ function queue(){
 var projects = new queue();
 */
 
+/*
 // Connect a user
 nowjs.on('connect', function(){
 	this.now.room = 'main';
@@ -140,17 +141,13 @@ nowjs.on('connect', function(){
 
 	this.now.recieveContent(content);
 
-	/*
-	var list = projects.list
-	for(var i=0; i<list.length; i++){
-		this.now.recieveProject(list[i]);
-	}*/
 });
 
 // Disconnect a user
 nowjs.on('disconnect', function(){
 
 });
+*/
 
 /*
 everyone.now.pushProject = function(projectObject){
