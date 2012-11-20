@@ -89,14 +89,14 @@ var server = http.createServer(function(req, response)
 
 
 		      // output the decoded data to the HTTP response          
-		      response.write('<html><head><title>Post data</title><link rel="stylesheet" type="text/css" href="main.css">');
-		      response.write('<meta http-equiv="refresh" content="1000;url=');
+		      response.write('<html><head><title>Portkey URL</title><link rel="stylesheet" type="text/css" href="main.css">');
+		      response.write('<meta http-equiv="refresh" content="10;url=');
 		      response.write(url);
-		      response.write('"></head><body><header>Redirecting to <a href="');
+		      response.write('"></head><body><header>Your link is ready <a href="');
 		      response.write(url);
 		      response.write('">');
 		      response.write(url);
-		      response.write('</a></header></body></html>');
+		      response.write('</a> :)</header></body></html>');
 		      
 		      response.end();
 		    });
