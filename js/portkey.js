@@ -1,5 +1,5 @@
-var urllocation = 'http://portkeyapp.herokuapp.com/';
-//var urllocation = 'http://localhost:5000/';
+var urllocation = 'http://portkeyapp.herokuapp.com';
+//var urllocation = 'http://localhost:5000';
 
 function strip(s) {
     var div = document.createElement('html');
@@ -54,7 +54,7 @@ var content = document.documentElement.innerHTML;
 
 document.body.innerHTML += 
     '<form id="portkeyPOST" enctype="application/x-www-form-urlencoded"'
-        + ' action=" ' + urllocation + 'api" method="post">'
+        + ' action=" ' + urllocation + '/api" method="post">'
         + '<input type="hidden" name="content" value="' + encodeURIComponent(content) + '">' 
         + '</form>';
 
